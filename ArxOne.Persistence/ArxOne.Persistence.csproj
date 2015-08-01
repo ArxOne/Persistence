@@ -60,6 +60,7 @@
     <Compile Include="PersistentConfigurationAttribute.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Serializer\RegistryPersistentSerializer.cs" />
+    <Compile Include="Utility\TypeExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ArxOne.Persistence.nuspec" />

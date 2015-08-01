@@ -55,12 +55,13 @@ namespace ArxOne.Persistence
         /// <param name="context">The context.</param>
         public void Advise(PropertyAdviceContext context)
         {
-            var persistenceSerializer = Configuration.GetSerializer(context.TargetProperty);
-            var persistenceData = Configuration.GetData(context.TargetProperty);
+            var targetProperty = context.TargetProperty;
+            var persistenceSerializer = Configuration.GetSerializer(targetProperty);
+            var persistenceData = Configuration.GetData(targetProperty);
             if (context.IsGetter)
-                context.ReturnValue = persistenceData.GetValue(Name, context.TargetProperty.PropertyType, DefaultValue, persistenceSerializer);
+                context.ReturnValue = persistenceData.GetValue(Name, targetProperty.PropertyType, DefaultValue, persistenceSerializer);
             else
-                persistenceData.SetValue(Name, context.Value, context.TargetProperty.PropertyType, AutoSave, persistenceSerializer);
+                persistenceData.SetValue(Name, context.Value, targetProperty.PropertyType, AutoSave, persistenceSerializer);
         }
     }
 }
