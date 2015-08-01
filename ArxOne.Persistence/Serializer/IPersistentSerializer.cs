@@ -9,6 +9,9 @@ namespace ArxOne.Persistence.Serializer
 {
     using System;
 
+    /// <summary>
+    /// Persistent serializer interface
+    /// </summary>
     public interface IPersistentSerializer
     {
         /// <summary>

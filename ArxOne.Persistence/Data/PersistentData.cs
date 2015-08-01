@@ -11,6 +11,9 @@ namespace ArxOne.Persistence.Data
     using System.Collections.Generic;
     using Serializer;
 
+    /// <summary>
+    /// Default persistent data implementation
+    /// </summary>
     public class PersistentData : IPersistentData
     {
         private class PersistentValue
@@ -39,7 +42,7 @@ namespace ArxOne.Persistence.Data
         /// Writes all changes down to persistence.
         /// </summary>
         /// <param name="persistentSerializer">The persistent serializer.</param>
-        public void Write(IPersistentSerializer persistentSerializer)
+        void IPersistentData.Write(IPersistentSerializer persistentSerializer)
         {
             lock (_persistentValues)
             {
@@ -70,7 +73,7 @@ namespace ArxOne.Persistence.Data
         /// <param name="defaultValue">The default value.</param>
         /// <param name="persistentSerializer">The persistent serializer.</param>
         /// <returns></returns>
-        public object GetValue(string name, Type valueType, object defaultValue, IPersistentSerializer persistentSerializer)
+        object IPersistentData.GetValue(string name, Type valueType, object defaultValue, IPersistentSerializer persistentSerializer)
         {
             return GetPersistentValue(name, valueType, defaultValue, persistentSerializer).Value;
         }
@@ -114,7 +117,7 @@ namespace ArxOne.Persistence.Data
         /// <param name="valueType"></param>
         /// <param name="writeNow">if set to <c>true</c> persists the value immediately.</param>
         /// <param name="persistentSerializer">The persistent serializer.</param>
-        public void SetValue(string name, object value, Type valueType, bool writeNow, IPersistentSerializer persistentSerializer)
+        void IPersistentData.SetValue(string name, object value, Type valueType, bool writeNow, IPersistentSerializer persistentSerializer)
         {
             lock (_persistentValues)
             {

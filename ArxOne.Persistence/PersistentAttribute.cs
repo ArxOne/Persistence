@@ -40,11 +40,19 @@ namespace ArxOne.Persistence
         /// </value>
         public object DefaultValue { get; set; }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PersistentAttribute"/> class.
+        /// </summary>
+        /// <param name="name">The name.</param>
         public PersistentAttribute(string name)
         {
             Name = name;
         }
 
+        /// <summary>
+        /// Advises the specified property.
+        /// </summary>
+        /// <param name="context">The context.</param>
         public void Advise(PropertyAdviceContext context)
         {
             var persistenceSerializer = Configuration.GetSerializer(context.TargetProperty);

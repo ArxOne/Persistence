@@ -10,6 +10,9 @@ namespace ArxOne.Persistence.Data
     using System;
     using Serializer;
 
+    /// <summary>
+    /// Persistent data interface
+    /// </summary>
     public interface IPersistentData
     {
         /// <summary>
