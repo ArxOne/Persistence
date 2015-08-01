@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<package>
+  <metadata>
+    <id>ArxOne.Persistence</id>
+    <version>$version$</version>
+    <title>$title$</title>
+    <authors>$author$</authors>
+    <owners>$author$</owners>
+    <licenseUrl>http://opensource.org/licenses/mit-license.php</licenseUrl>
+    <projectUrl>https://github.com/ArxOne/Persistence</projectUrl>
+    <!--<iconUrl>https://raw.githubusercontent.com/ArxOne/FTP/master/Icon/ArxOne.Ftp.png</iconUrl>-->
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <summary>Persistence library</summary>
+    <description>$description$</description>
+    <releaseNotes></releaseNotes>
+    <copyright>Copyright Arx One 2015</copyright>
+    <tags>persistence registry attribute preferences configuration persist</tags>
+    <developmentDependency>false</developmentDependency>
+  </metadata>
+  <files>
+    <file src="$SolutionDir$ArxOne.Persistence\bin\$ConfigurationName$\ArxOne.Persistence.xml" target="lib\net40-Client"/>
+  </files>
+</package>
