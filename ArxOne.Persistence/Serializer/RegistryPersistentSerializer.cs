@@ -40,7 +40,11 @@ namespace ArxOne.Persistence.Serializer
         /// </value>
         private static string RegistryNode => RegistryPersistenceAttribute.RegistryNode ?? DefaultRegistryNode;
 
-        private static RegistryKey CreateSubKey() => Registry.CurrentUser.CreateSubKey(@"Software\" + RegistryNode);
+        private static RegistryKey CreateSubKey()
+        {
+            var registryKey = RegistryPersistenceAttribute.RegistryCurrentUser ? Registry.CurrentUser : Registry.LocalMachine;
+            return registryKey.CreateSubKey(@"Software\" + RegistryNode);
+        }
 
         bool IPersistentSerializer.TryLoadValue(string name, Type valueType, out object value)
         {
