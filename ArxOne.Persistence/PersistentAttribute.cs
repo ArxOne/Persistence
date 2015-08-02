@@ -14,7 +14,7 @@ namespace ArxOne.Persistence
     /// Persistent properties are saved directly as preferences
     /// </summary>
     [AttributeUsage(AttributeTargets.Property)]
-    public class PersistentAttribute : Attribute, IPropertyAdvice
+    public class PersistentAttribute : Attribute//, IPropertyAdvice
     {
         /// <summary>
         /// Gets or sets the name under which the property is serialized.
