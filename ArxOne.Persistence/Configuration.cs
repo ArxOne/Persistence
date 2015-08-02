@@ -74,7 +74,7 @@ namespace ArxOne.Persistence
                     var configurationAttribute = assembly.GetCustomAttributes(typeof(PersistentConfigurationAttribute), false)
                         .OfType<PersistentConfigurationAttribute>().SingleOrDefault();
                     var persistentDataType = configurationAttribute?.PersistentDataType ?? typeof(PersistentData);
-                    var persistentSerializerType = configurationAttribute?.PersistentSerializerType ?? typeof(PersistentData);
+                    var persistentSerializerType = configurationAttribute?.PersistentSerializerType ?? typeof(RegistryPersistentSerializer);
                     configuration = new AssemblyConfiguration
                     {
                         Data = (IPersistentData)GetInstance(persistentDataType),

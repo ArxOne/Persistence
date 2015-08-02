@@ -10,16 +10,37 @@ namespace ArxOne.Persistence.Serializer
     using Microsoft.Win32;
     using Utility;
     using System.Linq;
+    using System.Reflection;
 
     /// <summary>
     /// Registry persistent serializer. This is the default implementation
     /// </summary>
     public class RegistryPersistentSerializer : IPersistentSerializer
     {
-        private static RegistryKey CreateSubKey()
+        private static string _defaultRegistryNode;
+
+        private static string DefaultRegistryNode
         {
-            return Registry.CurrentUser.CreateSubKey(@"Software\" );
+            get
+            {
+                if (_defaultRegistryNode == null)
+                {
+                    var assembly = Assembly.GetEntryAssembly();
+                    _defaultRegistryNode = assembly.GetName().Name;
+                }
+                return _defaultRegistryNode;
+            }
         }
+
+        /// <summary>
+        /// Gets the registry node.
+        /// </summary>
+        /// <value>
+        /// The registry node.
+        /// </value>
+        private static string RegistryNode => RegistryPersistenceAttribute.RegistryNode ?? DefaultRegistryNode;
+
+        private static RegistryKey CreateSubKey() => Registry.CurrentUser.CreateSubKey(@"Software\" + RegistryNode);
 
         bool IPersistentSerializer.TryLoadValue(string name, Type valueType, out object value)
         {
