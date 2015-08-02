@@ -65,8 +65,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="ArxOne.Persistence.nuspec" />
-    <None Include="Properties\ArxOne.Persistence.snk" />
     <None Include="packages.config" />
+    <None Include="Properties\ArxOne.Persistence.snk" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="FodyWeavers.xml" />
