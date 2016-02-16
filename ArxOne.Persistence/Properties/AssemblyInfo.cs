@@ -20,6 +20,6 @@ using System.Runtime.CompilerServices;
 [assembly: AssemblyCulture("")]
 [assembly: NeutralResourcesLanguage("en")]
 
-[assembly: AssemblyVersion("0.1.1")]
+[assembly: AssemblyVersion("0.1.2")]
 
 [assembly: CLSCompliant(true)]
