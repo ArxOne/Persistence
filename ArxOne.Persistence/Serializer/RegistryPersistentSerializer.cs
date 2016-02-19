@@ -74,6 +74,7 @@ namespace ArxOne.Persistence.Serializer
                 r.SetValue(name, qualifiedValue.Item1 ?? new byte[0], qualifiedValue.Item2);
             }
         }
+
         /// <summary>
         /// Gets a pair value/registry kind.
         /// </summary>
@@ -112,6 +113,9 @@ namespace ArxOne.Persistence.Serializer
 
             if (t == typeof(bool))
                 return Tuple.Create(o, RegistryValueKind.DWord);
+
+            if (t == typeof(byte[]))
+                return Tuple.Create(o, RegistryValueKind.Binary);
 
             throw new ArgumentException(@"Unsupported type", nameof(t));
         }
