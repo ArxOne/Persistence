@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArxOne.Persistence", "ArxOne.Persistence\ArxOne.Persistence.csproj", "{6802B30C-AA53-4FDD-AC52-32ABDA4C277E}"
 EndProject
@@ -11,6 +11,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tools", "Tools", "{BD957CCD
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArxOne.Persistence.Test", "ArxOne.Persistence.Test\ArxOne.Persistence.Test.csproj", "{8F6B59C8-789B-48FF-AFF8-148C611C1C52}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestApplication", "TestApplication\TestApplication.csproj", "{C9C4CACA-88F1-44BC-B7D3-4C80DD1FBFA1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -26,6 +28,10 @@ Global
 		{8F6B59C8-789B-48FF-AFF8-148C611C1C52}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8F6B59C8-789B-48FF-AFF8-148C611C1C52}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8F6B59C8-789B-48FF-AFF8-148C611C1C52}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C9C4CACA-88F1-44BC-B7D3-4C80DD1FBFA1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9C4CACA-88F1-44BC-B7D3-4C80DD1FBFA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9C4CACA-88F1-44BC-B7D3-4C80DD1FBFA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9C4CACA-88F1-44BC-B7D3-4C80DD1FBFA1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
