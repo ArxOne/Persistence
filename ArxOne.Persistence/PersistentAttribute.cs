@@ -30,7 +30,7 @@ namespace ArxOne.Persistence
         /// <value>
         ///   <c>true</c> if [automatic save]; otherwise, <c>false</c>.
         /// </value>
-        public bool AutoSave { get; set; }
+        public bool AutoSave { get; set; } = true;
 
         /// <summary>
         /// Gets or sets the default value.

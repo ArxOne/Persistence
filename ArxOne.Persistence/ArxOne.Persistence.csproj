@@ -55,6 +55,7 @@
   <ItemGroup>
     <Compile Include="Configuration.cs" />
     <Compile Include="Data\IPersistentData.cs" />
+    <Compile Include="Persistence.cs" />
     <Compile Include="Serializer\IPersistentSerializer.cs" />
     <Compile Include="PersistentAttribute.cs" />
     <Compile Include="Data\PersistentData.cs" />

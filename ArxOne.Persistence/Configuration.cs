@@ -22,12 +22,9 @@ namespace ArxOne.Persistence
             public IPersistentSerializer Serializer;
         };
 
-        private static readonly IDictionary<AssemblyName, AssemblyConfiguration> ConfigurationByAssembly
-            = new Dictionary<AssemblyName, AssemblyConfiguration>();
-        private static readonly IDictionary<PropertyInfo, AssemblyConfiguration> ConfigurationByProperty 
-            = new Dictionary<PropertyInfo, AssemblyConfiguration>();
-        private static readonly IDictionary<Type, object> Instances 
-            = new Dictionary<Type, object>();
+        private static readonly IDictionary<AssemblyName, AssemblyConfiguration> ConfigurationByAssembly = new Dictionary<AssemblyName, AssemblyConfiguration>();
+        private static readonly IDictionary<PropertyInfo, AssemblyConfiguration> ConfigurationByProperty = new Dictionary<PropertyInfo, AssemblyConfiguration>();
+        private static readonly IDictionary<Type, object> Instances = new Dictionary<Type, object>();
 
         public static IPersistentSerializer GetSerializer(PropertyInfo propertyInfo)
         {
@@ -102,6 +99,17 @@ namespace ArxOne.Persistence
                     Instances[type] = instance;
                 }
                 return instance;
+            }
+        }
+
+        /// <summary>
+        /// Writes all unflushed data.
+        /// </summary>
+        internal static void Write()
+        {
+            foreach (var assemblyConfiguration in ConfigurationByAssembly)
+            {
+                assemblyConfiguration.Value.Data.Write(assemblyConfiguration.Value.Serializer);
             }
         }
     }

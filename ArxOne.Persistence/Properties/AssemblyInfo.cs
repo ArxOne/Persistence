@@ -1,14 +1,13 @@
-﻿#region Arx One FTP
-// Arx One FTP
-// A simple FTP client
-// https://github.com/ArxOne/FTP
-// Released under MIT license http://opensource.org/licenses/MIT
+﻿#region Arx One Persistence
+// Arx One Persistence
+// The one who keeps you alive after death
+// https://github.com/ArxOne/Persistence
+// MIT License
 #endregion
 
 using System;
 using System.Reflection;
 using System.Resources;
-using System.Runtime.CompilerServices;
 
 [assembly: AssemblyTitle("ArxOne Persistence")]
 
@@ -20,6 +19,6 @@ using System.Runtime.CompilerServices;
 [assembly: AssemblyCulture("")]
 [assembly: NeutralResourcesLanguage("en")]
 
-[assembly: AssemblyVersion("0.1.3")]
+[assembly: AssemblyVersion("0.2")]
 
 [assembly: CLSCompliant(true)]
