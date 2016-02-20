@@ -74,8 +74,8 @@ namespace ArxOne.Persistence
                     var persistentSerializerType = configurationAttribute?.PersistentSerializerType ?? typeof(RegistryPersistentSerializer);
                     configuration = new AssemblyConfiguration
                     {
-                        Data = (IPersistentData)GetInstance(persistentDataType),
-                        Serializer = (IPersistentSerializer)GetInstance(persistentSerializerType)
+                        Data = (IPersistentData)CreateInstance(persistentDataType, assembly),
+                        Serializer = (IPersistentSerializer)CreateInstance(persistentSerializerType, assembly)
                     };
                     ConfigurationByAssembly[assemblyName] = configuration;
                 }
@@ -83,23 +83,12 @@ namespace ArxOne.Persistence
             }
         }
 
-        /// <summary>
-        /// Gets the instance of a given type (uses singletons).
-        /// </summary>
-        /// <param name="type">The type.</param>
-        /// <returns></returns>
-        private static object GetInstance(Type type)
+        private static object CreateInstance(Type type, Assembly assembly)
         {
-            lock (Instances)
-            {
-                object instance;
-                if (!Instances.TryGetValue(type, out instance))
-                {
-                    instance = Activator.CreateInstance(type);
-                    Instances[type] = instance;
-                }
-                return instance;
-            }
+            var assemblyCtor = type.GetConstructor(new[] { typeof(Assembly) });
+            if (assemblyCtor != null)
+                return Activator.CreateInstance(type, assembly);
+            return Activator.CreateInstance(type);
         }
 
         /// <summary>

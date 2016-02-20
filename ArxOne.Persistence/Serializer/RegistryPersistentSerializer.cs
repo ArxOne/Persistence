@@ -17,33 +17,32 @@ namespace ArxOne.Persistence.Serializer
     /// </summary>
     public class RegistryPersistentSerializer : IPersistentSerializer
     {
-        private static string _defaultRegistryNode;
+        private RegistryKey RegistryKey { get; }
+        private string RegistryNode { get; }
 
-        private static string DefaultRegistryNode
+        /// <summary>
+        /// Initializes a new instance of the <see cref="RegistryPersistentSerializer"/> class.
+        /// </summary>
+        /// <param name="assembly">The assembly.</param>
+        public RegistryPersistentSerializer(Assembly assembly)
         {
-            get
+            var registryPersistenceAttribute = assembly.GetCustomAttributes(typeof(RegistryPersistenceAttribute), false)
+                .OfType<RegistryPersistenceAttribute>().FirstOrDefault();
+            if (registryPersistenceAttribute != null)
             {
-                if (_defaultRegistryNode == null)
-                {
-                    var assembly = Assembly.GetEntryAssembly();
-                    _defaultRegistryNode = assembly.GetName().Name;
-                }
-                return _defaultRegistryNode;
+                RegistryKey = registryPersistenceAttribute.CurrentUser ? Registry.CurrentUser : Registry.LocalMachine;
+                RegistryNode = registryPersistenceAttribute.Node;
+            }
+            else
+            {
+                RegistryKey = Registry.CurrentUser;
+                RegistryNode = assembly.GetName().Name;
             }
         }
 
-        /// <summary>
-        /// Gets the registry node.
-        /// </summary>
-        /// <value>
-        /// The registry node.
-        /// </value>
-        private static string RegistryNode => RegistryPersistenceAttribute.RegistryNode ?? DefaultRegistryNode;
-
-        private static RegistryKey CreateSubKey()
+        private RegistryKey CreateSubKey()
         {
-            var registryKey = RegistryPersistenceAttribute.RegistryCurrentUser ? Registry.CurrentUser : Registry.LocalMachine;
-            return registryKey.CreateSubKey(@"Software\" + RegistryNode);
+            return RegistryKey.CreateSubKey(@"Software\" + RegistryNode);
         }
 
         bool IPersistentSerializer.TryLoadValue(string name, Type valueType, out object value)

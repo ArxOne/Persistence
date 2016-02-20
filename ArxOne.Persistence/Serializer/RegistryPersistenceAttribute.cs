@@ -16,26 +16,12 @@ namespace ArxOne.Persistence.Serializer
     public class RegistryPersistenceAttribute : Attribute
     {
         /// <summary>
-        /// The registry node
-        /// </summary>
-        public static string RegistryNode;
-
-        /// <summary>
-        /// The registry current user
-        /// </summary>
-        public static bool RegistryCurrentUser = true;
-
-        /// <summary>
         /// Gets or sets the node.
         /// </summary>
         /// <value>
         /// The node.
         /// </value>
-        public string Node
-        {
-            get { return RegistryNode; }
-            set { RegistryNode = value; }
-        }
+        public string Node { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether data should be serialized to current user (defaults to true).
@@ -43,11 +29,7 @@ namespace ArxOne.Persistence.Serializer
         /// <value>
         ///   <c>true</c> if [current user]; otherwise, <c>false</c>.
         /// </value>
-        public bool CurrentUser
-        {
-            get { return RegistryCurrentUser; }
-            set { RegistryCurrentUser = value; }
-        }
+        public bool CurrentUser { get; set; } = true;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="RegistryPersistenceAttribute"/> class.
@@ -56,7 +38,6 @@ namespace ArxOne.Persistence.Serializer
         public RegistryPersistenceAttribute(string node)
         {
             Node = node;
-            CurrentUser = true;
         }
     }
 }
