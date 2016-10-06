@@ -1,0 +1,46 @@
+{
+  "locked": false,
+  "version": 1,
+  "targets": {
+    ".NETFramework,Version=v4.5": {
+      "MrAdvice/2.0.0": {
+        "compile": {
+          "lib/portable-net40+sl5+wp8+uap10.0/MrAdvice.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net40+sl5+wp8+uap10.0/MrAdvice.dll": {}
+        }
+      }
+    },
+    ".NETFramework,Version=v4.5/win": {
+      "MrAdvice/2.0.0": {
+        "compile": {
+          "lib/portable-net40+sl5+wp8+uap10.0/MrAdvice.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net40+sl5+wp8+uap10.0/MrAdvice.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "MrAdvice/2.0.0": {
+      "sha512": "qhZ7R/syI69xLi+HHj7yy8fawQmQF6fbZRWu4+4YcKC+K9tkzOKwaWnkLr/iWsMN6iUqkN4XtBmZ+r+XnNwddg==",
+      "type": "package",
+      "files": [
+        "MrAdvice.2.0.0.nupkg.sha512",
+        "MrAdvice.nuspec",
+        "build/MrAdvice.Weaver.exe",
+        "build/MrAdvice.targets",
+        "lib/portable-net40+sl5+wp8+uap10.0/MrAdvice.dll",
+        "lib/portable-net40+sl5+wp8+uap10.0/MrAdvice.xml"
+      ]
+    }
+  },
+  "projectFileDependencyGroups": {
+    "": [
+      "MrAdvice >= 2.*"
+    ],
+    ".NETFramework,Version=v4.5": []
+  }
+}
