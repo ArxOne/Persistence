@@ -20,7 +20,7 @@ nuget:
   disable_publish_on_pr: true
 
 configuration: Release
-platform: AnyCPU
+platform: Any CPU
 
 build:
   parallel: false
