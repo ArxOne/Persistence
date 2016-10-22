@@ -13,10 +13,13 @@ namespace ArxOne.Persistence.Test
 {
     using System;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using MrAdvice.Advice;
 
     [TestClass]
     public class PersistenceTest
     {
+        private Type _import = typeof(IAdvice);
+
         public class DefaultValue
         {
             [Persistent("A", DefaultValue = "nope")]
