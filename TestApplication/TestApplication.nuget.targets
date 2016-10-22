@@ -4,6 +4,6 @@
     <NuGetPackageRoot>$(UserProfile)\.nuget\packages\</NuGetPackageRoot>
   </PropertyGroup>
   <ImportGroup>
-    <Import Project="$(NuGetPackageRoot)\MrAdvice\2.0.13\build\MrAdvice.targets" Condition="Exists('$(NuGetPackageRoot)\MrAdvice\2.0.13\build\MrAdvice.targets')" />
+    <Import Project="$(NuGetPackageRoot)\MrAdvice\2.1.0\build\MrAdvice.targets" Condition="Exists('$(NuGetPackageRoot)\MrAdvice\2.1.0\build\MrAdvice.targets')" />
   </ImportGroup>
 </Project>

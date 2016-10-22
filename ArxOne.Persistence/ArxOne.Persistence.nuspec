@@ -2,7 +2,7 @@
 <package>
   <metadata>
     <id>ArxOne.Persistence</id>
-    <version>$version$-dnlib2</version>
+    <version>$version$-dnlib3</version>
     <title>$title$</title>
     <authors>$author$</authors>
     <owners>$author$</owners>
