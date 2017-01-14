@@ -55,6 +55,9 @@ namespace ArxOne.Persistence.Serializer
                     return false;
                 }
                 value = ReadValue(r, name);
+                // some basic transtyping here
+                if (valueType.IsEnum)
+                    value = Enum.Parse(valueType, (string)value);
                 return true;
             }
         }
@@ -102,6 +105,9 @@ namespace ArxOne.Persistence.Serializer
             if (t == typeof(string))
                 return Tuple.Create(o, RegistryValueKind.String);
             if (t == typeof(Uri))
+                return Tuple.Create(o, RegistryValueKind.String);
+
+            if (t.IsEnum)
                 return Tuple.Create(o, RegistryValueKind.String);
 
             if (t == typeof(int))

@@ -1,8 +1,10 @@
 ﻿#region Arx One Persistence
+
 // Arx One Persistence
 // The one who keeps you alive after death
 // https://github.com/ArxOne/Persistence
 // MIT License
+
 #endregion
 
 using ArxOne.Persistence.Serializer;
@@ -15,12 +17,28 @@ namespace TestApplication
 
     public static class Program
     {
+        public enum Z
+        {
+            A,
+            B,
+            C
+        }
+
         [Persistent("IntValue", DefaultValue = 0)]
         public static int IntValue { get; set; }
 
+
+        [Persistent("EnumValue", DefaultValue = Z.A)]
+        public static Z EnumValue { get; set; }
+
+
         public static void Main(string[] args)
         {
-            ++IntValue;
+            //++IntValue;
+            if (EnumValue == Z.C)
+                EnumValue = Z.A;
+            else
+                ++EnumValue;
         }
     }
 }

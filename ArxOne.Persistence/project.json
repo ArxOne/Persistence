@@ -1,6 +1,6 @@
 ﻿{
   "dependencies": {
-    "MrAdvice": "2.1.0"
+    "MrAdvice": "2.4.5"
   },
   "frameworks": {
     "net40-client": {}
