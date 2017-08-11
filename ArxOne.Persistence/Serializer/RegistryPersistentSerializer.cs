@@ -56,8 +56,18 @@ namespace ArxOne.Persistence.Serializer
                 }
                 value = ReadValue(r, name);
                 // some basic transtyping here
+
+                // enums are parsed
                 if (valueType.IsEnum)
                     value = Enum.Parse(valueType, (string)value);
+                // booleans are stored in DWORDs or REG_NONE (for nullables)
+                else if (valueType == typeof(bool?))
+                {
+                    if (value != null)
+                        value = (int)value != 0;
+                }
+                else if (valueType == typeof(bool))
+                    value = (int)value != 0;
                 return true;
             }
         }

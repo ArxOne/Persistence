@@ -12,6 +12,7 @@ using ArxOne.Persistence.Serializer;
 namespace ArxOne.Persistence.Test
 {
     using System;
+    using System.Net.Mail;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
     using MrAdvice.Advice;
 
@@ -52,6 +53,28 @@ namespace ArxOne.Persistence.Test
         {
             var s1 = new DefaultValue();
             Assert.AreEqual("nope", s1.A);
+        }
+
+        public class C1
+        {
+            [Persistent("NB", AutoSave = true)]
+            public bool? B { get; set; }
+        }
+
+        [TestMethod]
+        public void NullableBoolTest()
+        {
+            var c1 = new C1();
+            var b = c1.B;
+            Assert.IsNull(b);
+            c1.B = true;
+
+            var c2 = new C1();
+            Assert.AreEqual(true, c2.B);
+            c2.B = null;
+
+            var c3 = new C1();
+            Assert.IsNull(c3.B);
         }
     }
 }
