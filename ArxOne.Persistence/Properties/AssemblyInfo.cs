@@ -12,13 +12,12 @@ using System.Reflection;
 using System.Resources;
 
 [assembly: AssemblyTitle("ArxOne Persistence")]
-[assembly:AssemblyDescription(
-        "A simple persistence library. Simply mark properties with attributes and they are persisted in registry.")]
+[assembly: AssemblyDescription("A simple persistence library. Simply mark properties with attributes and they are persisted in registry.")]
 [assembly: AssemblyCompany("Arx One")]
 [assembly: AssemblyProduct("ArxOne.Persistence")]
-[assembly: AssemblyCopyright("MIT license http://opensource.org/licenses/mit-license.php")]
+[assembly: AssemblyCopyright("MIT license http://opensource.org/licenses/MIT")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 [assembly: NeutralResourcesLanguage("en")]
-[assembly: AssemblyVersion("2.1.2")]
+[assembly: AssemblyVersion("2.1.3")]
 [assembly: CLSCompliant(true)]
