@@ -90,12 +90,10 @@ namespace ArxOne.Persistence.Data
         {
             lock (_persistentValues)
             {
-                PersistentValue persistentValue;
-                if (!_persistentValues.TryGetValue(name, out persistentValue))
+                if (!_persistentValues.TryGetValue(name, out var persistentValue))
                 {
                     // value is read from serializer only if not found in memory
-                    object value;
-                    if (!persistentSerializer.TryLoadValue(name, valueType, out value))
+                    if (!persistentSerializer.TryLoadValue(name, valueType, out var value))
                         value = defaultValue;
                     persistentValue = new PersistentValue
                     {
@@ -121,9 +119,8 @@ namespace ArxOne.Persistence.Data
         {
             lock (_persistentValues)
             {
-                PersistentValue persistentValue;
                 // if the value is not found (this is probably rare), then a container is created
-                if (!_persistentValues.TryGetValue(name, out persistentValue))
+                if (!_persistentValues.TryGetValue(name, out var persistentValue))
                 {
                     persistentValue = new PersistentValue
                     {

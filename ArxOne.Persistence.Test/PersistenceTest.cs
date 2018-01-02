@@ -29,14 +29,12 @@ namespace ArxOne.Persistence.Test
 
         public class Share1
         {
-            [Persistent("ShareA")]
-            public string A { get; set; }
+            [Persistent("ShareA")] public string A { get; set; }
         }
 
         public class Share2
         {
-            [Persistent("ShareA")]
-            public string B { get; set; }
+            [Persistent("ShareA")] public string B { get; set; }
         }
 
         [TestMethod]
@@ -57,8 +55,7 @@ namespace ArxOne.Persistence.Test
 
         public class C1
         {
-            [Persistent("NB", AutoSave = true)]
-            public bool? B { get; set; }
+            [Persistent("NB", AutoSave = true)] public bool? B { get; set; }
         }
 
         [TestMethod]
@@ -75,6 +72,21 @@ namespace ArxOne.Persistence.Test
 
             var c3 = new C1();
             Assert.IsNull(c3.B);
+        }
+
+        public class Version1
+        {
+            [Persistent("Version")] public Version V { get; set; }
+        }
+
+        [TestMethod]
+        public void VersionTest()
+        {
+            var v1 = new Version1();
+            if (v1.V == null || v1.V.Major > 1000)
+                v1.V = new Version(1, 0);
+            else
+                v1.V = new Version(v1.V.Major + 1, v1.V.Minor);
         }
     }
 }

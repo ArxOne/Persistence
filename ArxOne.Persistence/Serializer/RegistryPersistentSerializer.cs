@@ -68,6 +68,14 @@ namespace ArxOne.Persistence.Serializer
                 }
                 else if (valueType == typeof(bool))
                     value = (int)value != 0;
+                else if (valueType == typeof(Version))
+                {
+                    if (value != null)
+                    {
+                        if (Version.TryParse(value.ToString(), out var v))
+                            value = v;
+                    }
+                }
                 return true;
             }
         }
@@ -115,6 +123,8 @@ namespace ArxOne.Persistence.Serializer
             if (t == typeof(string))
                 return Tuple.Create(o, RegistryValueKind.String);
             if (t == typeof(Uri))
+                return Tuple.Create(o, RegistryValueKind.String);
+            if (t == typeof(Version))
                 return Tuple.Create(o, RegistryValueKind.String);
 
             if (t.IsEnum)
