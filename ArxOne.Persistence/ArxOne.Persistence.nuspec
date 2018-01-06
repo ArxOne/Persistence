@@ -13,7 +13,7 @@
     <summary>Persistence library</summary>
     <description>$description$</description>
     <releaseNotes></releaseNotes>
-    <copyright>Copyright Arx One 2015</copyright>
+    <copyright>Copyright Arx One 2015-2018</copyright>
     <tags>persistence registry attribute preferences configuration persist</tags>
     <developmentDependency>false</developmentDependency>
   </metadata>
