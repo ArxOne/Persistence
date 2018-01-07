@@ -5,9 +5,11 @@
 // MIT License
 #endregion
 
+using ArxOne.Persistence;
 using ArxOne.Persistence.Serializer;
 
 [assembly: RegistryPersistence("ArxOne.Persistence.Test")]
+[assembly: PersistentConfiguration(PersistentSerializerType = typeof(RegistryPersistentSerializer2))]
 
 namespace ArxOne.Persistence.Test
 {

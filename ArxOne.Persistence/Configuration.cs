@@ -45,8 +45,7 @@ namespace ArxOne.Persistence
         {
             lock (ConfigurationByProperty)
             {
-                AssemblyConfiguration configuration;
-                if (!ConfigurationByProperty.TryGetValue(propertyInfo, out configuration))
+                if (!ConfigurationByProperty.TryGetValue(propertyInfo, out var configuration))
                 {
                     configuration = GetConfiguration(propertyInfo.DeclaringType.Assembly);
                     ConfigurationByProperty[propertyInfo] = configuration;
@@ -64,9 +63,8 @@ namespace ArxOne.Persistence
         {
             lock (ConfigurationByAssembly)
             {
-                AssemblyConfiguration configuration;
                 var assemblyName = assembly.GetName();
-                if (!ConfigurationByAssembly.TryGetValue(assemblyName, out configuration))
+                if (!ConfigurationByAssembly.TryGetValue(assemblyName, out var configuration))
                 {
                     var configurationAttribute = assembly.GetCustomAttributes(typeof(PersistentConfigurationAttribute), false)
                         .OfType<PersistentConfigurationAttribute>().SingleOrDefault();

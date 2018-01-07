@@ -18,7 +18,7 @@
     <TestProjectType>UnitTest</TestProjectType>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
-	<OutputPath>.</OutputPath>
+    <OutputPath>.</OutputPath>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -57,6 +57,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="PersistenceTest.cs" />
+    <Compile Include="TranstypeTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ArxOne.Persistence\ArxOne.Persistence.csproj">

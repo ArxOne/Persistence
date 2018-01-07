@@ -55,13 +55,18 @@
     <Compile Include="Configuration.cs" />
     <Compile Include="Data\IPersistentData.cs" />
     <Compile Include="Persistence.cs" />
+    <Compile Include="Reflection\TypeMapping.cs" />
+    <Compile Include="Reflection\Transtyper.cs" />
+    <Compile Include="Reflection\TypeMappings.cs" />
     <Compile Include="Serializer\IPersistentSerializer.cs" />
     <Compile Include="PersistentAttribute.cs" />
     <Compile Include="Data\PersistentData.cs" />
     <Compile Include="PersistentConfigurationAttribute.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Serializer\PersistentSerializer.cs" />
     <Compile Include="Serializer\RegistryPersistenceAttribute.cs" />
     <Compile Include="Serializer\RegistryPersistentSerializer.cs" />
+    <Compile Include="Serializer\RegistryPersistentSerializer2.cs" />
     <Compile Include="Utility\TypeExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
