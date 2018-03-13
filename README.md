@@ -5,7 +5,7 @@ Allows to mark properties with a simple attribute and persist them in registry.
 
 Marking a property as persistent:
 ```csharp
-[Persistent("MyPersistedProperty", DefaultValue=1)] // the DefaultValue is optionnal
+[Persistent("MyPersistedProperty", DefaultValue=1)] // the DefaultValue is optional
 public int MyProperty { get; set; }
 ```
 
