@@ -19,5 +19,5 @@ using System.Resources;
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 [assembly: NeutralResourcesLanguage("en")]
-[assembly: AssemblyVersion("2.2")]
+[assembly: AssemblyVersion("2.3")]
 [assembly: CLSCompliant(true)]
