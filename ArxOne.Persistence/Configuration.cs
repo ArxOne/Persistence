@@ -24,7 +24,6 @@ namespace ArxOne.Persistence
 
         private static readonly IDictionary<AssemblyName, AssemblyConfiguration> ConfigurationByAssembly = new Dictionary<AssemblyName, AssemblyConfiguration>();
         private static readonly IDictionary<PropertyInfo, AssemblyConfiguration> ConfigurationByProperty = new Dictionary<PropertyInfo, AssemblyConfiguration>();
-        private static readonly IDictionary<Type, object> Instances = new Dictionary<Type, object>();
 
         public static IPersistentSerializer GetSerializer(PropertyInfo propertyInfo)
         {
