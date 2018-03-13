@@ -24,6 +24,7 @@ namespace ArxOne.Persistence
 
         private static readonly IDictionary<AssemblyName, AssemblyConfiguration> ConfigurationByAssembly = new Dictionary<AssemblyName, AssemblyConfiguration>();
         private static readonly IDictionary<PropertyInfo, AssemblyConfiguration> ConfigurationByProperty = new Dictionary<PropertyInfo, AssemblyConfiguration>();
+        private static readonly IDictionary<Type, object> Instances = new Dictionary<Type, object>();
 
         public static IPersistentSerializer GetSerializer(PropertyInfo propertyInfo)
         {
@@ -71,8 +72,8 @@ namespace ArxOne.Persistence
                     var persistentSerializerType = configurationAttribute?.PersistentSerializerType ?? typeof(RegistryPersistentSerializer);
                     configuration = new AssemblyConfiguration
                     {
-                        Data = (IPersistentData)CreateInstance(persistentDataType, assembly),
-                        Serializer = (IPersistentSerializer)CreateInstance(persistentSerializerType, assembly)
+                        Data = (IPersistentData)GetInstance(persistentDataType, assembly),
+                        Serializer = (IPersistentSerializer)GetInstance(persistentSerializerType, assembly)
                     };
                     ConfigurationByAssembly[assemblyName] = configuration;
                 }
@@ -80,12 +81,20 @@ namespace ArxOne.Persistence
             }
         }
 
-        private static object CreateInstance(Type type, Assembly assembly)
+        private static object GetInstance(Type type, Assembly assembly)
         {
+            // when an instance requires the assembly as parameter, we create one instance per assembly
             var assemblyCtor = type.GetConstructor(new[] { typeof(Assembly) });
             if (assemblyCtor != null)
                 return Activator.CreateInstance(type, assembly);
-            return Activator.CreateInstance(type);
+            // otherwise, it is a shared instance
+            lock (Instances)
+            {
+                // and a shared instance can be cached
+                if (!Instances.TryGetValue(type, out var instance))
+                    Instances[type] = instance = Activator.CreateInstance(type);
+                return instance;
+            }
         }
 
         /// <summary>
@@ -93,10 +102,9 @@ namespace ArxOne.Persistence
         /// </summary>
         internal static void Write()
         {
-            foreach (var assemblyConfiguration in ConfigurationByAssembly)
-            {
-                assemblyConfiguration.Value.Data.Write(assemblyConfiguration.Value.Serializer);
-            }
+            lock (ConfigurationByAssembly)
+                foreach (var assemblyConfiguration in ConfigurationByAssembly)
+                    assemblyConfiguration.Value.Data.Write(assemblyConfiguration.Value.Serializer);
         }
     }
 }
