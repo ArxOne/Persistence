@@ -1,10 +1,10 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>net40;netstandard2.0</TargetFrameworks>
+    <TargetFrameworks>net40;netstandard2.0;net5.0</TargetFrameworks>
     <SignAssembly>true</SignAssembly>
     <PackageId>ArxOne.Persistence</PackageId>
-    <Version>2.3.1</Version>
+    <Version>2.3.2</Version>
     <Company>Arx One</Company>
     <PackageLicenseUrl>https://github.com/ArxOne/Persistence/blob/master/LICENSE</PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/ArxOne/Persistence</PackageProjectUrl>
@@ -22,12 +22,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="MrAdvice" Version="2.8.2" />
+    <PackageReference Include="MrAdvice" Version="2.9.1" />
   </ItemGroup>
 
-  <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
+  <ItemGroup Condition="'$(TargetFramework)' != 'net40'">
     <PackageReference Include="Microsoft.Win32.Registry">
-      <Version>4.5.0</Version>
+      <Version>5.0.0</Version>
     </PackageReference>
   </ItemGroup>
 
