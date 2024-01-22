@@ -1,10 +1,10 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>net40;netstandard2.0;net5.0</TargetFrameworks>
+    <TargetFrameworks>net40;netstandard2.0;net5.0;net6.0;net8.0</TargetFrameworks>
     <SignAssembly>true</SignAssembly>
     <PackageId>ArxOne.Persistence</PackageId>
-    <Version>2.3.2</Version>
+    <Version>2.3.3</Version>
     <Company>Arx One</Company>
     <PackageLicenseUrl>https://github.com/ArxOne/Persistence/blob/master/LICENSE</PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/ArxOne/Persistence</PackageProjectUrl>
